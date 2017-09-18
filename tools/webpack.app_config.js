@@ -39,9 +39,9 @@ const ios = {
 };
 
 const dependencyPlatforms = {
+  antd: 'web',
   bcryptjs: 'server',
   'body-parser': 'server',
-  bootstrap: 'web',
   dataloader: 'server',
   expo: ['ios', 'android'],
   express: 'server',
@@ -70,7 +70,6 @@ const dependencyPlatforms = {
   'react-router-dom': 'web',
   'react-router-redux': 'web',
   'react-transition-group': 'web',
-  reactstrap: 'web',
   'redux-devtools-extension': 'web',
   'redux-form': 'web',
   'serialize-javascript': 'server',

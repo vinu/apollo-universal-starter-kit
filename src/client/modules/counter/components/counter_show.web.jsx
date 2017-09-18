@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { Button } from 'reactstrap';
+import { Button } from 'antd';
 import styled from 'styled-components';
 import PageLayout from '../../../app/page_layout';
 
@@ -37,14 +37,14 @@ const CounterShow = ({
     return (
       <PageLayout>
         {renderMetaData()}
-        <div className="text-center mt-4 mb-4">
+        <div style={{ textAlign: 'center' }}>
           <Section>
             <p>
               Current count, is {count.amount}. This is being stored server-side
               in the database and using Apollo subscription for real-time
               updates.
             </p>
-            <Button id="graphql-button" color="primary" onClick={addCount(1)}>
+            <Button id="graphql-button" type="primary" onClick={addCount(1)}>
               Click to increase count
             </Button>
           </Section>
@@ -55,7 +55,7 @@ const CounterShow = ({
             </p>
             <Button
               id="redux-button"
-              color="primary"
+              type="primary"
               onClick={onReduxIncrement(1)}
             >
               Click to increase reduxCount

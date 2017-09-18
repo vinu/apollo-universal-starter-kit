@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import serialize from 'serialize-javascript';
 
-import styles from '../../client/styles/styles.scss';
+import styles from '../../client/styles/styles.less';
 
 const Html = ({
   content,

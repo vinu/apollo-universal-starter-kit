@@ -1,31 +1,55 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Navbar, Nav, NavItem } from 'reactstrap';
+import { Menu, Row, Col } from 'antd';
 
 import modules from '../modules';
 
-const NavBar = () => (
-  <Navbar color="faded" light>
-    <Container>
-      <Row className="align-items-center">
-        <Link to="/" className="navbar-brand">
-          Apollo Starter Kit
-        </Link>
-        <Nav>{modules.navItems}</Nav>
+class NavBar extends React.Component {
+  state = {
+    current: 'home'
+  };
 
-        <Nav className="ml-auto">
-          {modules.navItemsRight}
-          {(!__PERSIST_GQL__ || __DEV__) && (
-            <NavItem>
-              <a href="/graphiql" className="nav-link">
-                GraphiQL
-              </a>
-            </NavItem>
-          )}
-        </Nav>
+  handleClick = e => {
+    console.log('click ', e);
+    this.setState({
+      current: e.key
+    });
+  };
+
+  render() {
+    return (
+      <Row gutter={8}>
+        <Col span={14}>
+          <Menu
+            onClick={this.handleClick}
+            selectedKeys={[this.state.current]}
+            mode="horizontal"
+            theme="dark"
+            style={{ lineHeight: '64px' }}
+          >
+            <Menu.Item key="home">
+              <Link to="/">Apollo Starter Kit</Link>
+            </Menu.Item>
+            {modules.navItems}
+          </Menu>
+        </Col>
+        <Col span={10}>
+          <Menu
+            mode="horizontal"
+            theme="dark"
+            style={{ lineHeight: '64px', float: 'right' }}
+          >
+            {modules.navItemsRight}
+            {__DEV__ && (
+              <Menu.Item>
+                <a href="/graphiql">GraphiQL</a>
+              </Menu.Item>
+            )}
+          </Menu>
+        </Col>
       </Row>
-    </Container>
-  </Navbar>
-);
+    );
+  }
+}
 
 export default NavBar;

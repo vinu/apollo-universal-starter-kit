@@ -20,7 +20,7 @@ import settings from '../../../settings';
 import Routes from './routes';
 import modules from '../modules';
 
-import '../styles/styles.scss';
+import '../styles/styles.less';
 
 let networkInterface = createBatchingNetworkInterface({
   opts: {

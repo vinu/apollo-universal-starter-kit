@@ -1,29 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { Container } from 'reactstrap';
+
+import LocaleProvider from 'antd/lib/locale-provider';
+import enUS from 'antd/lib/locale-provider/en_US';
+import { Layout } from 'antd';
 
 import NavBar from './nav_bar';
 
-const footerHeight = '40px';
-
-const Footer = styled.footer`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  line-height: ${footerHeight};
-  height: ${footerHeight};
-`;
+const { Header, Content, Footer } = Layout;
 
 const Page = ({ children, navBar }) => {
   return (
-    <section>
-      {navBar !== false && <NavBar />}
-      <Container id="content">{children}</Container>
-      <Footer>
-        <div className="text-center">&copy; 2017. Example Apollo App.</div>
-      </Footer>
-    </section>
+    <LocaleProvider locale={enUS}>
+      <Layout>
+        <Header>{navBar !== false && <NavBar />}</Header>
+        <Content
+          id="content"
+          style={{ background: '#fff', padding: 24, minHeight: 280 }}
+        >
+          {children}
+        </Content>
+        <Footer style={{ textAlign: 'center' }}>
+          &copy; 2017. Example Apollo App.
+        </Footer>
+      </Layout>
+    </LocaleProvider>
   );
 };
 
