@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { withRouter, NavLink } from 'react-router-dom';
 import { Menu, Row, Col } from 'antd';
 
 import modules from '../modules';
 
 class NavBar extends React.Component {
   state = {
-    current: 'home'
+    current: '/'
   };
 
   handleClick = e => {
-    console.log('click ', e);
     this.setState({
       current: e.key
     });
@@ -22,13 +22,15 @@ class NavBar extends React.Component {
         <Col span={14}>
           <Menu
             onClick={this.handleClick}
-            selectedKeys={[this.state.current]}
+            selectedKeys={[this.props.location.pathname]}
             mode="horizontal"
             theme="dark"
             style={{ lineHeight: '64px' }}
           >
-            <Menu.Item key="home">
-              <Link to="/">Apollo Starter Kit</Link>
+            <Menu.Item key="/">
+              <NavLink to="/" className="nav-link">
+                Apollo Starter Kit
+              </NavLink>
             </Menu.Item>
             {modules.navItems}
           </Menu>
@@ -52,4 +54,8 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+NavBar.propTypes = {
+  location: PropTypes.object.isRequired
+};
+
+export default withRouter(NavBar);
