@@ -42,7 +42,6 @@ const dependencyPlatforms = {
   antd: 'web',
   bcryptjs: 'server',
   'body-parser': 'server',
-  bootstrap: 'web',
   dataloader: 'server',
   expo: ['ios', 'android'],
   express: 'server',
