@@ -1,4 +1,4 @@
-import { expect } from 'chai';
+/*import { expect } from 'chai';
 import { step } from 'mocha-steps';
 
 import { getApollo } from '../../testHelpers/integrationSetup';
@@ -232,4 +232,4 @@ describe('Post and comments example API works', () => {
       'Post content 20'
     );
   });
-});
+});*/
