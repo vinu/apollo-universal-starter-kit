@@ -14,15 +14,10 @@ const PageLayout = ({ children, navBar }) => {
     <LocaleProvider locale={enUS}>
       <Layout>
         <Header>{navBar !== false && <NavBar />}</Header>
-        <Content
-          id="content"
-          style={{ background: '#fff', padding: 24, minHeight: 280 }}
-        >
+        <Content id="content" style={{ background: '#fff', padding: 24, minHeight: 280 }}>
           {children}
         </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          &copy; 2017. Example Apollo App.
-        </Footer>
+        <Footer style={{ textAlign: 'center' }}>&copy; 2017. Example Apollo App.</Footer>
       </Layout>
     </LocaleProvider>
   );

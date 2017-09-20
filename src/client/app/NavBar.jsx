@@ -36,11 +36,7 @@ class NavBar extends React.Component {
           </Menu>
         </Col>
         <Col span={10}>
-          <Menu
-            mode="horizontal"
-            theme="dark"
-            style={{ lineHeight: '64px', float: 'right' }}
-          >
+          <Menu mode="horizontal" theme="dark" style={{ lineHeight: '64px', float: 'right' }}>
             {modules.navItemsRight}
             {__DEV__ && (
               <Menu.Item>
