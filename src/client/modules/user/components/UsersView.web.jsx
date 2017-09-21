@@ -3,18 +3,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { ListGroup, ListGroupItem } from 'reactstrap';
 
 import PageLayout from '../../../app/PageLayout';
 
 function renderUsers(users) {
   return users.map(({ id, username, email, isAdmin }) => {
     return (
-      <ListGroupItem className="justify-content-between" key={id}>
+      <li className="justify-content-between" key={id}>
         <span>{username}</span>
         <span>{email}</span>
         <span>{isAdmin.toString()}</span>
-      </ListGroupItem>
+      </li>
     );
   });
 }
@@ -54,14 +53,14 @@ const UsersView = ({ loading, users, errors }) => {
         {renderMetaData()}
         <h2>Users</h2>
         <h1 />
-        <ListGroup>
-          <ListGroupItem className="justify-content-between">
+        <ul>
+          <li className="justify-content-between">
             <span>Username:</span>
             <span>Email:</span>
             <span>Is Admin:</span>
-          </ListGroupItem>
+          </li>
           {renderUsers(users)}
-        </ListGroup>
+        </ul>
       </PageLayout>
     );
   }

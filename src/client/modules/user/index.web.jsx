@@ -1,7 +1,7 @@
 // React
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
-import { NavItem } from 'reactstrap';
+import { Menu } from 'antd';
 
 // Component and helpers
 import Profile from './containers/Profile';
@@ -45,17 +45,19 @@ export default new Feature({
     <Route exact path="/login" component={Login} />
   ],
   navItem: [
-    <AuthNav role="admin">
-      <NavLink to="/users" className="nav-link" activeClassName="active">
-        Users
-      </NavLink>
-    </AuthNav>
+    <Menu.Item key="/users">
+      <AuthNav role="admin">
+        <NavLink to="/users" className="nav-link" activeClassName="active">
+          Users
+        </NavLink>
+      </AuthNav>
+    </Menu.Item>
   ],
   navItemRight: [
-    <NavItem>
+    <Menu.Item key="/profile">
       <AuthProfile />
-    </NavItem>,
-    <NavItem>
+    </Menu.Item>,
+    <Menu.Item>
       <AuthLogin>
         <span className="nav-link">
           <NavLink to="/login" activeClassName="active">
@@ -67,7 +69,7 @@ export default new Feature({
           </NavLink>
         </span>
       </AuthLogin>
-    </NavItem>
+    </Menu.Item>
   ],
   reducer: { user: reducers },
   middleware: tokenMiddleware,
