@@ -20,5 +20,5 @@ export default new Feature({
       </NavLink>
     </Menu.Item>
   ),
-  reducer: { $Module$: reducers }
+  reducer: { $module$: reducers }
 });
