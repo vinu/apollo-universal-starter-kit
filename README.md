@@ -1,6 +1,8 @@
 <p align="center"><a href="#"><img width="150" src="https://rawgit.com/sysgears/apollo-universal-starter-kit/master/logo.svg"></a></p>
 
-## Apollo Web&Mobile Universal Starter Kit with Hot Code Reload
+## Apollo v2 Mobile&Web Universal Starter Kit with Hot Code Reload
+
+If you are using Apollo v1 please use [starter kit from `apollo1` branch](https://github.com/sysgears/apollo-universal-starter-kit/tree/apollo1)
 
 [![Join the chat at https://gitter.im/sysgears/apollo-fullstack-starter-kit](https://badges.gitter.im/sysgears/apollo-fullstack-starter-kit.svg)](https://gitter.im/sysgears/apollo-fullstack-starter-kit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![All Contributors](https://img.shields.io/badge/all_contributors-11-orange.svg?style=flat-square)](#contributors)
@@ -8,10 +10,16 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/sysgears/apollo-universal-starter-kit.svg)](https://greenkeeper.io/)
 [![Twitter Follow](https://img.shields.io/twitter/follow/sysgears.svg?style=social)](https://twitter.com/sysgears)
 
-> Apollo Universal Starter Kit is a SEO friendly boilerplate for [Universal] web app development built on top of [Apollo],
-> [GraphQL], [React], [React Native], [Expo], [Redux], [Express] with SQL storage support and [Twitter Bootstrap] integration.
-> Hot Code Reload of back end & front end using [Webpack] and Hot Module Replacement to reflect your changes instantly
-> and help you stay productive.
+> Apollo Universal Starter Kit is a SEO friendly boilerplate for [Universal] Mobile and Web app development 
+> built on top of [Apollo], [GraphQL], [React], [React Native], [Expo], [Redux], [Express] with SQL storage support
+> and [Twitter Bootstrap] integration. Hot Code Reload of back end & front end using [Webpack] and 
+> Hot Module Replacement to reflect your changes instantly and help you stay productive.
+
+## Commercial support
+
+SysGears team provides advanced support for commercial partners. A commercial partner will have a premium access to our
+team whether this is to help you with your code based on this starter kit or related technologies used in the kit. Contact
+us using [Skype](http://hatscripts.com/addskype?sysgears) or via email: [info@sysgears.com](mailto:info@sysgears.com)
 
 ## Hot Code Reload demo
 ![screencast](https://user-images.githubusercontent.com/1259926/27387579-c6799ada-56a1-11e7-93fc-d08e9970640d.gif)
@@ -90,16 +98,16 @@ is possible. In this case you can write your components with React Native's buil
 To cover more differences you can use platform-specific files.
 
 ```
-my_component.web.jsx
-my_component.android.jsx
-my_component.ios.jsx
+MyComponent.web.jsx
+MyComponent.android.jsx
+MyComponent.ios.jsx
 ```
 
 In case you only want to use it for `web` and do not intend to later add `mobile` version, you can omit `.web.jsx` extension
-and just use `my_component.jsx`. Same applies if you just wish to use it for `mobile`.
+and just use `MyComponent.jsx`. Same applies if you just wish to use it for `mobile`.
 
-Currently `counter` example is implemented to support web and mobile version. If you want to try running `counter_show.jsx`
-as `universal` component, just delete or rename `counter_show.web.jsx` and you can see how the same component can be used 
+Currently `counter` example is implemented to support web and mobile version. If you want to try running `CounterView.jsx`
+as `universal` component, just delete or rename `CounterView.web.jsx` and you can see how the same component can be used 
 for both web and mobile.
 
 #### Known issues
@@ -142,16 +150,16 @@ This starter kit encourages modular design of application features.
 Each feature should be designed as a decoupled module, deleting feature should ideally not break the remaining application.
 Basic feature module scaffolding is provided with the following command:
 ```
-yarn cli addmodule <module-name>
+yarn cli addmodule <moduleName>
 ```
 This will create all the necessary files to start developing on a new feature module. It creates `client` and `server` module.
 If you would like to only add one or the other, add a second parameter like:
 ```
-yarn cli addmodule <module-name> [client|server]
+yarn cli addmodule <moduleName> [client|server]
 ```
 If you wish to remove an existing module, do so with:
 ```
-yarn cli deletemodule <module-name>
+yarn cli deletemodule <moduleName>
 ```
 Again you can specify `client` or `server` as a second parameter, if you only wish to delete one or the other. 
 
@@ -261,7 +269,7 @@ The project structure presented in this boilerplate is **fractal**, where functi
 │   │   └── modules          # Front-end feature-modules, each module has:
 │   │   │                    # (components, containers, GraphQL queries, redux reducers)
 │   │   └── styles           # Application-wide styles
-│   │   └── test-helpers     # Test helper for front-end integration tests
+│   │   └── testHelpers      # Test helper for front-end integration tests
 │   │   └── index.jsx        # Entry point to web front-end wtih hot code reload
 │   ├── common               # Common code, redux store and logging
 │   ├── mobile               # Mobile front-end source code
@@ -275,10 +283,10 @@ The project structure presented in this boilerplate is **fractal**, where functi
 │   │   └── modules          # Back-end server feature-modules, each module has:
 │   │   │                    # (schema definition, resolvers, sql queries)
 │   │   └── sql              # Knex connector
-│   │   └── test-helpers     # Test helper for back-end integration tests
-│   │   └── api_server.js    # GraphQL api server set up
+│   │   └── testHelpers      # Test helper for back-end integration tests
+│   │   └── server.js        # GraphQL api server set up
 │   │   └── index.js         # Entry point to back-end wtih hot code reload
-└── tools                    # All build related files (Webpack)
+└── tools                    # All build and cli related files
 ```
 
 ## Additional scripts

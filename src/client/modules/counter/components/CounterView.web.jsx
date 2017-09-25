@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { Button } from 'antd';
+import { Button } from 'reactstrap';
 import styled from 'styled-components';
 import PageLayout from '../../../app/PageLayout';
 
@@ -42,8 +42,8 @@ const CounterView = ({ loading, counter, addCounter, reduxCount, onReduxIncremen
             </Button>
           </Section>
           <Section>
-            <p>Current reduxCount, is {reduxCount}. This is being stored client-side with Redux.</p>
-            <Button id="redux-button" type="primary" onClick={onReduxIncrement(1)}>
+            <p>Current reduxCount, is {reduxCount}. This 1 is being stored client-side with Redux.</p>
+            <Button id="redux-button" type="primary" onClick={() => onReduxIncrement(1)}>
               Click to increase reduxCount
             </Button>
           </Section>
