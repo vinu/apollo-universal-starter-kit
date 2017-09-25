@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { Button } from 'reactstrap';
+import { Button } from 'antd';
 import styled from 'styled-components';
 import PageLayout from '../../../app/PageLayout';
 
