@@ -3,20 +3,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { Table } from 'antd';
 
 import PageLayout from '../../../app/PageLayout';
-
-function renderUsers(users) {
-  return users.map(({ id, username, email, isAdmin }) => {
-    return (
-      <li className="justify-content-between" key={id}>
-        <span>{username}</span>
-        <span>{email}</span>
-        <span>{isAdmin.toString()}</span>
-      </li>
-    );
-  });
-}
 
 const UsersView = ({ loading, users, errors }) => {
   const renderMetaData = () => (
@@ -31,14 +20,26 @@ const UsersView = ({ loading, users, errors }) => {
     />
   );
 
-  if (loading) {
-    return (
-      <PageLayout>
-        {renderMetaData()}
-        <div className="text-center">Loading...</div>
-      </PageLayout>
-    );
-  } else if (errors) {
+  const columns = [
+    {
+      title: 'Username',
+      dataIndex: 'username',
+      key: 'username'
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email'
+    },
+    {
+      title: 'Is admin',
+      dataIndex: 'isAdmin',
+      key: 'isAdmin',
+      render: text => `${text.toString()}`
+    }
+  ];
+
+  if (errors) {
     return (
       <PageLayout>
         {renderMetaData()}
@@ -53,14 +54,7 @@ const UsersView = ({ loading, users, errors }) => {
         {renderMetaData()}
         <h2>Users</h2>
         <h1 />
-        <ul>
-          <li className="justify-content-between">
-            <span>Username:</span>
-            <span>Email:</span>
-            <span>Is Admin:</span>
-          </li>
-          {renderUsers(users)}
-        </ul>
+        <Table columns={columns} dataSource={users} pagination={false} loading={loading && !users} rowKey="id" />
       </PageLayout>
     );
   }

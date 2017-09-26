@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
+import { Card } from 'antd';
 import PageLayout from '../../../app/PageLayout';
 
 const ProfileView = ({ loading, currentUser }) => {
@@ -29,10 +30,11 @@ const ProfileView = ({ loading, currentUser }) => {
     return (
       <PageLayout>
         {renderMetaData()}
-        <h2>Profile</h2>
-        <p>username: {currentUser.username}</p>
-        <p>email: {currentUser.email}</p>
-        {currentUser.isAdmin && <p>is admin: {currentUser.isAdmin.toString()}</p>}
+        <Card title="Profile" bordered={false} style={{ width: 300 }}>
+          <p>username: {currentUser.username}</p>
+          <p>email: {currentUser.email}</p>
+          {currentUser.isAdmin && <p>is admin: {currentUser.isAdmin.toString()}</p>}
+        </Card>
       </PageLayout>
     );
   } else {
